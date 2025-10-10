@@ -25,7 +25,8 @@ import com.nimbusds.jose.proc.SecurityContext;
 
 @Configuration
 public class JwtConfig {
-    public static final SignatureAlgorithm JWT_ALGORITHM = SignatureAlgorithm.RS512;
+    public static final SignatureAlgorithm JWT_ALGORITHM = SignatureAlgorithm.RS256; // nên dùng RS256 vì các hệ thống
+                                                                                     // lớn thường hay xài
     @Value("${app.jwt.private}")
     private String jwtPrivate;
 

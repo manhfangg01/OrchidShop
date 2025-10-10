@@ -1,6 +1,5 @@
 package com.orchid_backend.config.security;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,8 +12,8 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @Configuration
 public class CorsConfig {
         private static final List<String> allowedOrigins = Arrays.asList(
-                        "http://localhost:5137",
-                        "http://localhost:4137");
+                        "http://localhost:5173",
+                        "http://localhost:4173");
 
         private static final List<String> allowedMethods = Arrays.asList(
                         "GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH");

@@ -6,12 +6,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Builder
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoginResponse {
-    private String accessToken;
-    private Long accessTokenValidity;
+@Builder
+public class AccountResponse {
+    private Long id;
+    private String email;
+    private String fullName;
+    private String role;
+
 }

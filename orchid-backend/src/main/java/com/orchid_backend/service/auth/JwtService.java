@@ -15,7 +15,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.jose.jws.SignatureAlgorithm;
 import org.springframework.security.oauth2.jwt.JwsHeader;
-import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.security.oauth2.jwt.JwtClaimsSet;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
@@ -41,7 +40,6 @@ public class JwtService {
     private Long accessTokenExpiration;
 
     private final JwtEncoder jwtEncoder;
-    private final JwtDecoder jwtDecoder;
     private final RefreshTokenRepository refreshTokenRepository;
     private final UserRepository userRepository;
 
@@ -49,7 +47,6 @@ public class JwtService {
             UserRepository userRepository) {
         this.jwtEncoder = jwtEncoder;
         this.refreshTokenRepository = refreshTokenRepository;
-        this.jwtDecoder = jwtDecoder;
         this.userRepository = userRepository;
     }
 

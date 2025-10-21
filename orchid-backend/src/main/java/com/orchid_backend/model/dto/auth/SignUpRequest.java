@@ -15,16 +15,16 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SignUpRequest {
-    @NotBlank
-    @Email
+    @NotBlank(message = "Tên đăng nhập là bắt buộc")
+    @Email(message = "Định dạng email không đúng")
     private String username;
 
-    @NotBlank
-    @Size(min = 6)
+    @NotBlank(message = "Mật khẩu là bắt buộc")
+    @Size(min = 6, message = "Mật khẩu phải hơn 6 ký tự")
     private String password;
 
-    @NotBlank
-    @Size(min = 6)
+    @NotBlank(message = "Tên tài khoản là bắt buộc")
+    @Size(min = 6, message = "Tên tài khoản phải hơn 6 ký tự")
     private String fullName;
 
 }

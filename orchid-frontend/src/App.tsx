@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { toast } from "react-toastify";
+import { authApi } from "./services/auth/AuthApi";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    try {
+      authApi.callLogout();
+      toast.success("Đăng xuất thành công!");
+      // Optional: redirect to login page
+      navigate("/login", { replace: true }); // Không quay lại trang trước đó khi không bấm nút "back"
+    } catch (error) {
+      console.error("Lỗi khi đăng xuất:", error);
+      toast.error("Đăng xuất thất bại!");
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="app-container">
+      <h1>Hello I gay</h1>
 
-export default App
+      {/* Nút Logout */}
+      <button
+        onClick={handleLogout}
+        style={{
+          padding: "10px 20px",
+          backgroundColor: "#e74c3c",
+          color: "white",
+          border: "none",
+          borderRadius: "5px",
+          cursor: "pointer",
+          fontSize: "16px",
+          marginTop: "20px",
+        }}
+      >
+        Đăng xuất
+      </button>
+    </div>
+  );
+};
+
+export default App;
